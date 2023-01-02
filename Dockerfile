@@ -23,7 +23,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
-    apt-get install -y python msitools python-simplejson python-six ca-certificates && \
+    apt-get install -y python msitools python-simplejson python-six ca-certificates qt5-default && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
 

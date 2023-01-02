@@ -18,6 +18,9 @@ ARG PREPEND_PATH="${DEVTOOLSET_ROOTPATH}/usr/bin:"
 # Taken from https://github.com/mstorsjo/msvc-wine/
 FROM ubuntu:20.04 AS vcbuilder
 
+ENV TZ=Europe/Berlin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y python msitools python-simplejson python-six ca-certificates && \
